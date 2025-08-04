@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Settings - Smart Water AI Monitoring{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-cog"></i> User Settings</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <!-- Personal Information -->
+                        <div class="mb-4">
+                            <h5 class="text-primary">Personal Information</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" class="form-control" value="{{ user.name }}" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" value="{{ user.email }}" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Usage Limits -->
+                        <div class="mb-4">
+                            <h5 class="text-primary">Usage Limits</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="daily_limit" class="form-label">
+                                        <i class="fas fa-calendar-day"></i> Daily Limit (Liters)
+                                    </label>
+                                    <input type="number" class="form-control" id="daily_limit" name="daily_limit" 
+                                           value="{{ user.daily_limit }}" step="0.1" min="1" required>
+                                    <div class="form-text">Set your daily water usage limit</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="hourly_limit" class="form-label">
+                                        <i class="fas fa-clock"></i> Hourly Limit (Liters)
+                                    </label>
+                                    <input type="number" class="form-control" id="hourly_limit" name="hourly_limit" 
+                                           value="{{ user.hourly_limit }}" step="0.1" min="0.1" required>
+                                    <div class="form-text">Set your hourly water usage limit</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alert Preferences -->
+                        <div class="mb-4">
+                            <h5 class="text-primary">Alert Preferences</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="alert_whatsapp" 
+                                               name="alert_whatsapp" {{ 'checked' if user.alert_whatsapp }}>
+                                        <label class="form-check-label" for="alert_whatsapp">
+                                            <i class="fab fa-whatsapp text-success"></i> WhatsApp Alerts
+                                        </label>
+                                    </div>
+                                    <div class="form-text">Receive alerts via WhatsApp</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="alert_sms" 
+                                               name="alert_sms" {{ 'checked' if user.alert_sms }}>
+                                        <label class="form-check-label" for="alert_sms">
+                                            <i class="fas fa-sms text-info"></i> SMS Alerts
+                                        </label>
+                                    </div>
+                                    <div class="form-text">Receive alerts via SMS</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Theme Preferences -->
+                        <div class="mb-4">
+                            <h5 class="text-primary">Display Preferences</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="dark_mode">
+                                        <label class="form-check-label" for="dark_mode">
+                                            <i class="fas fa-moon"></i> Dark Mode
+                                        </label>
+                                    </div>
+                                    <div class="form-text">Enable dark theme</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Settings
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

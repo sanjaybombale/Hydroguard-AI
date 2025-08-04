@@ -1,0 +1,195 @@
+/* Nature-themed background */
+.nature-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+.nature-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+    z-index: -1;
+}
+
+/* Custom primary color */
+.bg-primary-custom {
+    background: linear-gradient(45deg, #2196F3, #21CBF3) !important;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Stat cards */
+.stat-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* Form styling */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+/* Button styling */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #1976D2, #00BCD4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+}
+
+/* Alert styling */
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+.alert-sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* Chart container */
+#usageChart {
+    max-height: 300px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .stat-card .card-body {
+        padding: 1rem;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .card {
+        background: rgba(33, 37, 41, 0.95);
+        color: #fff;
+    }
+    
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+    
+    .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: #2196F3;
+        color: #fff;
+    }
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Water drop animation */
+@keyframes droplet {
+    0% { transform: translateY(-10px) scale(1); opacity: 1; }
+    100% { transform: translateY(10px) scale(0.8); opacity: 0.7; }
+}
+
+.fas.fa-tint {
+    animation: droplet 2s ease-in-out infinite alternate;
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(33, 150, 243, 0.6);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(33, 150, 243, 0.8);
+}
